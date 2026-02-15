@@ -370,7 +370,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0f172a] text-indigo-100 p-2 md:p-4 flex flex-col items-center justify-center font-sans overflow-x-hidden">
+    // translate="no" を追加して翻訳を無効化
+    <div className="min-h-screen bg-[#0f172a] text-indigo-100 p-2 md:p-4 flex flex-col items-center justify-center font-sans overflow-x-hidden" translate="no">
       <div className="w-full max-w-6xl bg-[#1e293b] rounded-xl md:rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.6)] p-4 md:p-8 border border-slate-700/50 backdrop-blur-sm">
         
         {/* Header Section */}
