@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Play, Square, Volume2, Trash2, Music, Download, Shuffle, ChevronRight, Volume1 } from 'lucide-react';
+import { Play, Square, Volume2, Trash2, Music, Download, Shuffle, ChevronRight, Volume1, Smile, Moon } from 'lucide-react';
 
 /**
  * Web Audio APIを使用したドラムシンセサイザーエンジン
@@ -137,16 +137,16 @@ const INSTRUMENTS = [
   "Open Hi-hat", "Closed Hi-hat", "Snare", "Kick"
 ];
 
-// 楽器ごとのカラー設定
+// 楽器ごとのカラー設定（ダーク背景に映えるネオンカラー）
 const INSTRUMENT_COLORS = {
-  "Crash": "from-yellow-400 to-amber-500 shadow-yellow-500/50",
-  "High Tom": "from-cyan-400 to-blue-500 shadow-cyan-500/50",
-  "Mid Tom": "from-blue-500 to-indigo-600 shadow-blue-500/50",
-  "Low Tom": "from-violet-500 to-purple-600 shadow-violet-500/50",
-  "Open Hi-hat": "from-pink-400 to-rose-500 shadow-pink-500/50",
-  "Closed Hi-hat": "from-rose-500 to-red-600 shadow-rose-500/50",
-  "Snare": "from-emerald-400 to-teal-500 shadow-emerald-500/50",
-  "Kick": "from-fuchsia-500 to-pink-600 shadow-fuchsia-500/50"
+  "Crash": "from-yellow-400 to-amber-500 shadow-[0_0_15px_rgba(245,158,11,0.5)]",
+  "High Tom": "from-cyan-400 to-blue-500 shadow-[0_0_15px_rgba(6,182,212,0.5)]",
+  "Mid Tom": "from-blue-500 to-indigo-500 shadow-[0_0_15px_rgba(99,102,241,0.5)]",
+  "Low Tom": "from-violet-500 to-purple-500 shadow-[0_0_15px_rgba(139,92,246,0.5)]",
+  "Open Hi-hat": "from-pink-400 to-rose-500 shadow-[0_0_15px_rgba(244,63,94,0.5)]",
+  "Closed Hi-hat": "from-rose-500 to-pink-600 shadow-[0_0_15px_rgba(236,72,153,0.5)]",
+  "Snare": "from-emerald-400 to-teal-500 shadow-[0_0_15px_rgba(16,185,129,0.5)]",
+  "Kick": "from-fuchsia-500 to-purple-600 shadow-[0_0_15px_rgba(217,70,239,0.5)]"
 };
 
 const INSTRUMENT_MAP = { "High Tom": "Hi Tom" };
@@ -371,56 +371,55 @@ export default function App() {
 
   return (
     // translate="no" を追加して翻訳を無効化
-    <div className="min-h-screen bg-[#0f172a] text-indigo-100 p-2 md:p-4 flex flex-col items-center justify-center font-sans overflow-x-hidden" translate="no">
-      <div className="w-full max-w-6xl bg-[#1e293b] rounded-xl md:rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.6)] p-4 md:p-8 border border-slate-700/50 backdrop-blur-sm">
+    <div className="min-h-screen bg-slate-950 text-slate-200 p-2 md:p-4 flex flex-col items-center justify-center font-sans overflow-x-hidden" translate="no">
+      <div className="w-full max-w-6xl bg-slate-900 rounded-[2rem] shadow-[0_0_40px_rgba(0,0,0,0.5)] p-4 md:p-8 border border-slate-800 ring-1 ring-white/5">
         
         {/* Header Section */}
         <div className="flex flex-col xl:flex-row justify-between items-center mb-6 md:mb-10 gap-6 md:gap-8">
           <div className="flex items-center gap-3">
-            <div className="p-2 md:p-2.5 bg-indigo-500/10 rounded-xl border border-indigo-500/20 shadow-inner">
-              <Music className="w-6 h-6 md:w-8 md:h-8 text-fuchsia-400" />
+            <div className="p-2 md:p-3 bg-indigo-500/20 rounded-full border border-indigo-500/30 shadow-[0_0_15px_rgba(99,102,241,0.3)]">
+              <Moon className="w-6 h-6 md:w-8 md:h-8 text-indigo-400" />
             </div>
-            <h1 className="text-2xl md:text-3xl font-black bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400 bg-clip-text text-transparent tracking-tighter uppercase italic">
-              Fill-In Engine
+            <h1 className="text-2xl md:text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300 tracking-tight drop-shadow-sm">
+              Drum Fills Guide
             </h1>
           </div>
 
-          <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 bg-slate-900/40 p-2 rounded-xl md:rounded-2xl border border-slate-700/30 shadow-2xl w-full xl:w-auto">
+          <div className="flex flex-wrap justify-center items-center gap-3 md:gap-4 bg-slate-950/50 p-2.5 rounded-full shadow-inner border border-slate-800 w-full xl:w-auto">
             <button
               onClick={togglePlay}
-              className={`flex items-center gap-2 px-5 py-2 md:px-7 md:py-3 rounded-xl font-black transition-all duration-300 transform active:scale-95 ${
+              className={`flex items-center gap-2 px-6 py-2 md:px-8 md:py-3 rounded-full font-bold transition-all duration-200 transform active:scale-95 shadow-lg ${
                 isPlaying 
-                  ? 'bg-rose-500 hover:bg-rose-600 text-white shadow-[0_0_25px_rgba(244,63,94,0.6)]' 
-                  : 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-[0_0_25px_rgba(16,185,129,0.6)]'
+                  ? 'bg-rose-500 hover:bg-rose-600 text-white shadow-rose-900/50' 
+                  : 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-emerald-900/50'
               }`}
             >
               {isPlaying ? <Square size={18} fill="currentColor" /> : <Play size={18} fill="currentColor" />}
-              <span className="tracking-widest text-sm md:text-base">{isPlaying ? 'STOP' : 'PLAY'}</span>
+              <span className="tracking-wider text-sm md:text-base">{isPlaying ? 'STOP' : 'PLAY'}</span>
             </button>
 
             {/* Controls Group */}
-            <div className="flex items-center gap-4 md:gap-6 border-l-0 border-r-0 md:border-l md:border-r border-slate-700/50 px-2 md:px-6 mx-0 md:mx-2">
+            <div className="flex items-center gap-4 md:gap-6 border-l border-r border-slate-800 px-4 md:px-6 mx-0 md:mx-2">
               {/* BPM Control */}
               <div className="flex flex-col items-center">
-                <span className="text-[9px] md:text-[10px] text-slate-500 font-bold tracking-widest uppercase mb-1 md:mb-1.5">BPM</span>
+                <span className="text-[10px] text-slate-500 font-bold tracking-widest uppercase mb-1">BPM</span>
                 <div className="flex items-center gap-2 md:gap-3">
                   <input
                     type="range" min="60" max="200" value={bpm} onChange={(e) => setBpm(Number(e.target.value))}
-                    className="w-20 md:w-24 h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-fuchsia-500"
+                    className="w-20 md:w-24 h-2 bg-slate-800 rounded-full appearance-none cursor-pointer accent-indigo-400"
                   />
-                  <span className="w-8 text-right font-mono text-fuchsia-400 font-black text-base md:text-lg leading-none">{bpm}</span>
+                  <span className="w-8 text-right font-mono text-indigo-400 font-black text-base md:text-lg leading-none">{bpm}</span>
                 </div>
               </div>
 
               {/* Volume Control */}
               <div className="flex flex-col items-center">
-                <span className="text-[9px] md:text-[10px] text-slate-500 font-bold tracking-widest uppercase mb-1 md:mb-1.5">VOL</span>
+                <span className="text-[10px] text-slate-500 font-bold tracking-widest uppercase mb-1">VOL</span>
                 <div className="flex items-center gap-2">
-                  <Volume1 size={14} className="text-slate-500 md:hidden" />
-                  <Volume1 size={16} className="text-slate-500 hidden md:block" />
+                  <Volume1 size={16} className="text-slate-500" />
                   <input
                     type="range" min="0" max="1" step="0.01" value={volume} onChange={handleVolumeChange}
-                    className="w-16 md:w-20 h-1.5 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-emerald-500"
+                    className="w-16 md:w-20 h-2 bg-slate-800 rounded-full appearance-none cursor-pointer accent-indigo-400"
                   />
                 </div>
               </div>
@@ -430,20 +429,19 @@ export default function App() {
               <div className="relative" ref={presetMenuRef}>
                 <button 
                   onClick={() => setIsPresetMenuOpen(!isPresetMenuOpen)}
-                  className={`flex items-center gap-2 px-3 py-2 md:px-5 md:py-3 bg-slate-800 hover:bg-slate-700 rounded-xl text-xs md:text-sm text-indigo-200 transition-all border border-slate-700 font-bold ${isPresetMenuOpen ? 'border-fuchsia-500 ring-2 ring-fuchsia-500/30' : ''}`}
+                  className={`flex items-center gap-2 px-4 py-2 md:px-5 md:py-3 bg-slate-800 hover:bg-slate-700 rounded-full text-xs md:text-sm text-slate-300 transition-all border border-slate-700 font-bold shadow-sm ${isPresetMenuOpen ? 'border-indigo-500 text-indigo-300 ring-1 ring-indigo-500/50' : ''}`}
                 >
-                  <Music size={16} className="text-fuchsia-400 md:hidden" />
-                  <Music size={18} className="text-fuchsia-400 hidden md:block" />
+                  <Music size={16} className={isPresetMenuOpen ? "text-indigo-400" : "text-slate-400"} />
                   <span className="hidden sm:inline">{currentPreset || "Select Beat"}</span>
                 </button>
                 {isPresetMenuOpen && (
-                  <div className="absolute top-full right-0 mt-3 w-72 md:w-80 bg-slate-800 border border-slate-600 rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] z-30 overflow-hidden backdrop-blur-2xl">
-                    <div className="flex bg-slate-900/50 border-b border-slate-700">
+                  <div className="absolute top-full right-0 mt-3 w-72 md:w-80 bg-slate-900 border border-slate-700 rounded-3xl shadow-2xl z-30 overflow-hidden">
+                    <div className="flex bg-slate-950/50 border-b border-slate-800 p-1">
                       {Object.keys(PRESET_CATEGORIES).map(cat => (
                         <button
                           key={cat}
                           onClick={() => setActiveCategory(cat)}
-                          className={`flex-1 py-3 text-[10px] font-black uppercase tracking-tighter transition-all ${activeCategory === cat ? 'bg-indigo-600 text-white' : 'text-slate-500 hover:text-slate-300'}`}
+                          className={`flex-1 py-2 text-[10px] font-bold rounded-full transition-all ${activeCategory === cat ? 'bg-indigo-600 text-white shadow-md' : 'text-slate-500 hover:text-slate-300 hover:bg-slate-800'}`}
                         >
                           {cat}
                         </button>
@@ -454,10 +452,10 @@ export default function App() {
                         <button
                           key={name}
                           onClick={() => loadPreset(activeCategory, name)}
-                          className="flex items-center justify-between w-full text-left px-5 py-3.5 text-sm text-slate-300 hover:bg-slate-700/50 transition-colors group"
+                          className="flex items-center justify-between w-full text-left px-5 py-3 text-sm text-slate-300 hover:bg-slate-800 hover:text-indigo-300 transition-colors group"
                         >
                           <span className="font-semibold">{name}</span>
-                          <ChevronRight size={14} className="text-slate-600 group-hover:text-fuchsia-400 translate-x-0 group-hover:translate-x-1 transition-transform" />
+                          <ChevronRight size={14} className="text-slate-600 group-hover:text-indigo-400 translate-x-0 group-hover:translate-x-1 transition-transform" />
                         </button>
                       ))}
                     </div>
@@ -467,29 +465,26 @@ export default function App() {
 
               <button 
                 onClick={selectRandomPreset}
-                className="p-2 md:p-3 bg-slate-800 text-slate-400 hover:text-fuchsia-400 hover:bg-slate-700 rounded-xl transition-all border border-slate-700 hover:border-fuchsia-500/50 group"
+                className="p-2 md:p-3 bg-slate-800 text-slate-400 hover:text-indigo-300 hover:bg-slate-700 rounded-full transition-all border border-slate-700 shadow-sm hover:border-indigo-500/50 group"
                 title="Random from category"
               >
-                <Shuffle size={18} className="group-active:rotate-180 transition-transform duration-500 md:hidden" />
-                <Shuffle size={20} className="group-active:rotate-180 transition-transform duration-500 hidden md:block" />
+                <Shuffle size={20} className="group-active:rotate-180 transition-transform duration-500" />
               </button>
 
               <button 
                 onClick={exportMIDI}
-                className="p-2 md:p-3 bg-slate-800 text-slate-400 hover:text-cyan-400 hover:bg-slate-700 rounded-xl transition-all border border-slate-700 hover:border-cyan-500/50"
+                className="p-2 md:p-3 bg-slate-800 text-slate-400 hover:text-cyan-300 hover:bg-slate-700 rounded-full transition-all border border-slate-700 shadow-sm hover:border-cyan-500/50"
                 title="Export MIDI"
               >
-                <Download size={18} className="md:hidden"/>
-                <Download size={20} className="hidden md:block"/>
+                <Download size={20} />
               </button>
 
               <button 
                 onClick={clearGrid}
-                className="p-2 md:p-3 bg-slate-800 text-slate-400 hover:text-rose-400 hover:bg-slate-700 rounded-xl transition-all border border-slate-700 hover:border-rose-500/50 ml-1"
+                className="p-2 md:p-3 bg-slate-800 text-slate-400 hover:text-rose-400 hover:bg-slate-700 rounded-full transition-all border border-slate-700 shadow-sm hover:border-rose-500/50 ml-1"
                 title="Reset Pattern"
               >
-                <Trash2 size={18} className="md:hidden"/>
-                <Trash2 size={20} className="hidden md:block"/>
+                <Trash2 size={20} />
               </button>
             </div>
           </div>
@@ -502,11 +497,11 @@ export default function App() {
               {Array(STEPS).fill(0).map((_, i) => (
                 <div 
                   key={i}
-                  className={`w-8 h-1.5 md:w-10 md:h-2 mx-1 rounded-full transition-all duration-300 ${
+                  className={`w-8 h-2 md:w-10 md:h-3 mx-1 rounded-full transition-all duration-300 ${
                     currentStep === i 
-                      ? 'bg-fuchsia-500 shadow-[0_0_20px_rgba(217,70,239,1)] scale-110' 
+                      ? 'bg-indigo-400 scale-110 shadow-[0_0_10px_rgba(129,140,248,0.8)]' 
                       : i % 4 === 0 
-                        ? 'bg-slate-600 shadow-inner' 
+                        ? 'bg-slate-700' 
                         : 'bg-slate-800'
                   }`}
                 />
@@ -514,11 +509,11 @@ export default function App() {
             </div>
 
             {INSTRUMENTS.map((inst, rowIdx) => {
-              const colorClass = INSTRUMENT_COLORS[inst] || "from-slate-500 to-slate-600 shadow-slate-500/50";
+              const colorClass = INSTRUMENT_COLORS[inst] || "from-slate-600 to-slate-700 shadow-slate-700/50";
               return (
                 <div key={inst} className="flex items-center mb-3 md:mb-4 group/row">
                   <div className="w-28 md:w-40 flex items-center justify-end pr-4 md:pr-8">
-                    <span className="text-[9px] md:text-[10px] font-black text-slate-500 tracking-[0.2em] text-right group-hover/row:text-fuchsia-400 transition-colors uppercase italic truncate">
+                    <span className="text-[10px] md:text-xs font-bold text-slate-500 tracking-wider text-right group-hover/row:text-indigo-300 transition-colors uppercase">
                       {inst}
                     </span>
                   </div>
@@ -532,22 +527,19 @@ export default function App() {
                           key={colIdx}
                           onClick={() => toggleCell(rowIdx, colIdx)}
                           className={`
-                            w-8 h-10 md:w-10 md:h-12 mx-1 rounded-md md:rounded-lg transition-all duration-150 relative overflow-hidden
+                            w-8 h-8 md:w-10 md:h-10 mx-1 rounded-md transition-all duration-150 relative overflow-hidden
                             ${isActive 
-                              ? `bg-gradient-to-br ${colorClass} shadow-[0_0_15px] scale-[0.98]` 
+                              ? `bg-gradient-to-br ${colorClass} shadow-lg scale-[0.98]` 
                               : isOnBeat 
-                                ? 'bg-slate-700/40 hover:bg-slate-600/60 border border-slate-600/20' 
-                                : 'bg-slate-800/40 hover:bg-slate-700/60 border border-slate-700/20'
+                                ? 'bg-slate-800 hover:bg-slate-700/80 border border-slate-700/50' 
+                                : 'bg-slate-900/50 hover:bg-slate-800/80 border border-slate-800/50'
                             }
-                            ${isCurrent && !isActive ? 'ring-2 ring-white/20 !bg-slate-600/80' : ''}
-                            ${isCurrent && isActive ? 'brightness-150 scale-105 z-10' : ''}
+                            ${isCurrent && !isActive ? 'ring-2 ring-indigo-500/50 bg-slate-700 z-10' : ''}
+                            ${isCurrent && isActive ? 'brightness-125 scale-105 z-10' : ''}
                           `}
                         >
                           {isActive && (
-                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.3),transparent)]" />
-                          )}
-                          {!isActive && isOnBeat && (
-                            <div className="absolute inset-x-0 bottom-0 h-1 bg-slate-500/20" />
+                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.4),transparent)]" />
                           )}
                         </button>
                       );
@@ -560,19 +552,18 @@ export default function App() {
         </div>
 
         {/* Footer info */}
-        <div className="mt-6 md:mt-8 flex flex-col md:flex-row justify-between items-center text-[9px] md:text-[10px] text-slate-500 border-t border-slate-700/40 pt-4 md:pt-8 uppercase tracking-[0.3em] font-black gap-4 md:gap-0">
+        <div className="mt-6 md:mt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-slate-500 border-t border-slate-800 pt-6 uppercase tracking-widest font-bold gap-4 md:gap-0">
           <div className="flex gap-4 md:gap-10">
-            <span className="flex items-center gap-2 md:gap-3 px-3 py-1 md:px-4 md:py-1.5 bg-slate-900/50 rounded-full border border-slate-700/50">
-              <Volume2 size={12} className="text-emerald-400 animate-pulse md:hidden"/> 
-              <Volume2 size={14} className="text-emerald-400 animate-pulse hidden md:block"/> 
+            <span className="flex items-center gap-2 px-3 py-1 bg-slate-900 rounded-full border border-slate-800">
+              <Volume2 size={14} className="text-emerald-400"/> 
               Synth Audio
             </span>
-            <span className="flex items-center gap-2 md:gap-3 px-3 py-1 md:px-4 md:py-1.5 bg-slate-900/50 rounded-full border border-slate-700/50">
+            <span className="flex items-center gap-2 px-3 py-1 bg-slate-900 rounded-full border border-slate-800">
               Grid: {STEPS} Steps
             </span>
           </div>
-          <div className="text-fuchsia-500/60 italic">
-            Neon Spectrum Fill-In Engine
+          <div className="text-indigo-500/50">
+            Midnight Pop Engine
           </div>
         </div>
       </div>
