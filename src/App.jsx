@@ -245,6 +245,174 @@ const PRESET_CATEGORIES = {
       addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
       addSteps("High Tom", [13]);
       addSteps("Low Tom", [14]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.1
+    '1-Beat 13': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 12, 13]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("High Tom", [14]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.2
+    '1-Beat 14': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 12]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("High Tom", [13]);
+      addSteps("Low Tom", [14]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.4  3はカット
+    '1-Beat 15': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 12, 14, 15]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("Open Hi-hat", [12]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.5
+    '1-Beat 16': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 12]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("Open Hi-hat", [12]);
+      addSteps("Low Tom", [14, 15]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.6
+    '1-Beat 17': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 12]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("High Tom", [13]);
+      addSteps("Low Tom", [14, 15]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.7
+    '1-Beat 18': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 12]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("High Tom", [13]);
+      addSteps("Low Tom", [14, 15]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.8
+    '1-Beat 19': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 12]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("Crash", [12]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.10  9はカット
+    '1-Beat 20': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 12]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("Low Tom", [12, 14, 15]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.11
+    '1-Beat 21': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 12]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("High Tom", [14, 15]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.12
+    '1-Beat 22': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 12]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("High Tom", [12, 13]);
+      addSteps("Low Tom", [14, 15]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.13
+    '1-Beat 23': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 12]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("Open Hi-hat", [12, 14]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.14
+    '1-Beat 24': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 13, 14, 15]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("Open Hi-hat", [12]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.15
+    '1-Beat 25': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("High Tom", [12, 13]);
+      addSteps("Low Tom", [14]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.17  16はカット
+    '1-Beat 26': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 12, 14]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("Open Hi-hat", [12, 14]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.18
+    '1-Beat 27': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 12, 13]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("High Tom", [14, 15]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.19
+    '1-Beat 28': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 12, 13]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("Open Hi-hat", [14]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.20
+    '1-Beat 29': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 12, 13]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("Low Tom", [14, 15]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.21
+    '1-Beat 30': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 12, 13, 14]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.22
+    '1-Beat 30': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 12]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("Crash", [12]);
+      addSteps("Low Tom", [14, 15]);
+    },
+    //ドラムフレーズ集 フィルイン 100連発 (簡単・初心者練習用・楽譜付) Ex.24  23はカット 25もカット
+    '1-Beat 30': (grid, getIdx) => {
+      const addSteps = (name, steps) => steps.forEach(s => grid[getIdx(name)][s] = true);
+      addSteps("Kick", [0, 8, 10]);
+      addSteps("Snare", [4, 12, 15]);
+      addSteps("Closed Hi-hat", [0, 2, 4, 6, 8, 10]);
+      addSteps("Crash", [12]);
+      addSteps("High Tom", [13]);
+      addSteps("Low Tom", [14]);
     }
   },
   '2-Beat': {
